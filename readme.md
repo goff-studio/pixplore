@@ -36,12 +36,13 @@ Incase of having between dependencies and globally installed packages, you can u
  4. `react-native-auto-height-image` to calculate the height of images based on their width without adding any extra utils
 
 
-## Whats covered
+## What's covered
 
  - App should run on both Android and iOS
  - Search on Pixabay and see the preview of images
  - Infinity scroll
- - Saving state of results screen
+ - Keep state of results screen while going to details
+ - Start a new search by clicking on Tags
  - Rotation supports. Fully support Portrait and on Landscape,... meh!
  - With ability to filter results based on users
 
