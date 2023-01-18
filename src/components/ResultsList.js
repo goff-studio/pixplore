@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { useSearchData } from '../hooks/useSearchData';
 import ResultListItem from './ResultListItem';
@@ -28,8 +28,9 @@ export function ResultsList() {
 			name="All users"
 		/>
 	);
-	const handleRenderImage = ({ item, index }) => (
-		<ResultListItem index={index} item={item} />
+	const handleRenderImage = useCallback(
+		({ item, index }) => <ResultListItem index={index} item={item} />,
+		[],
 	);
 
 	// Result Flatlist's related handlers
@@ -75,6 +76,7 @@ export function ResultsList() {
 		record => !activeUser || record.user === activeUser,
 	);
 
+	const handleKeyExtractor = item => item.id;
 	if (!currentKeyword) return <View />;
 
 	return (
@@ -86,15 +88,18 @@ export function ResultsList() {
 					results.length < total &&
 					nextPage
 				}
-				onEndReachedThreshold={0.75}
+				onEndReachedThreshold={0.65}
+				maxToRenderPerBatch={6}
 				columnWrapperStyle={styles.columnWrapper}
 				ListHeaderComponent={
 					!!results?.length && handleRenderResultHeader
 				}
+				windowSize={18}
 				ListFooterComponent={!!results?.length && handleFooter}
 				ListEmptyComponent={handleRenderEmptyState}
 				ItemSeparatorComponent={handleRenderResultSeparator}
 				numColumns={2}
+				keyExtractor={handleKeyExtractor}
 				data={filteredResults}
 				renderItem={handleRenderImage}
 			/>
