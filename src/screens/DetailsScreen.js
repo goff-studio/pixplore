@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { ScrollView, StyleSheet } from 'react-native';
 import AutoHeightImage from 'react-native-auto-height-image';
 import { Image, Screen, Text, View } from '../components/theme';
@@ -8,10 +8,17 @@ import { ChipsLists } from '../components/ChipsLists';
 import { Avatar } from '../components/Avatar';
 import Back from '../components/Back';
 import Views from '../components/Likes';
+import { useSearch } from '../hooks/useSearch';
 
 export function DetailsScreen() {
 	const { params } = useRoute();
 	const tagsArray = params?.tags.split(',') || [];
+	const navigation = useNavigation();
+	const { newSearch } = useSearch();
+	const handleNewSearch = keyword => {
+		newSearch(keyword);
+		navigation.goBack();
+	};
 	return (
 		<Screen edges={['bottom']}>
 			<Image
@@ -40,6 +47,7 @@ export function DetailsScreen() {
 						width={theme.dimensions.screenWidth / 1.2}
 					/>
 					<ChipsLists
+						setSelectedValue={handleNewSearch}
 						headerPad={theme.dimensions.screenWidth * 0.1}
 						data={tagsArray}
 					/>
