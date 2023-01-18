@@ -56,6 +56,7 @@ Incase of having between dependencies and globally installed packages, you can u
 
 ## To-Do List
 
+ - [x] Nested search in details screen 
  - [ ] Add ability to download images
  - [ ] Add some wow moments using small animations
  - [ ] Support both dark and light mode
