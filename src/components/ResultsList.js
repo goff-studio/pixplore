@@ -15,6 +15,7 @@ export function ResultsList() {
 	const { nextPage } = useSearch();
 	const resultsFlatlistRef = useRef();
 	const currentKeyword = useKeyword();
+	console.info({ currentKeyword });
 
 	// Users Flatlist's related handlers
 	const [activeUser, setActiveUser] = useState('');
@@ -74,6 +75,8 @@ export function ResultsList() {
 	const filteredResults = results.filter(
 		record => !activeUser || record.user === activeUser,
 	);
+
+	if (!currentKeyword) return <View />;
 
 	return (
 		<View center>

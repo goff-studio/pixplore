@@ -7,6 +7,8 @@ import { ResultsList } from '../components/ResultsList';
 
 export function SearchScreen() {
 	const { newSearch } = useSearch();
+
+	// to avoid unnecessary re-renders, refs used to store TextInput value
 	const search = useRef('');
 	const setSearch = query => (search.current = query);
 	const handleSearch = async () => {
@@ -15,21 +17,26 @@ export function SearchScreen() {
 
 	return (
 		<Screen>
-			<View paddingHorizontal={theme.pads.screenHorizontalPad}>
-				<Logo />
-				<View row marginBottom={20} alignItems="center">
-					<TextInput
-						placeholder="Search"
-						onChangeText={setSearch}
-						onSubmitEditing={handleSearch}
-						returnKeyType="search"
-						flex
-					/>
-					<Button onPress={handleSearch} marginLeft={10} />
+			<View
+				width="100%"
+				height="100%"
+				justifyContent={!search.current ? 'center' : undefined}>
+				<View paddingHorizontal={theme.pads.screenHorizontalPad}>
+					<Logo />
+					<View row marginBottom={20} alignItems="center">
+						<TextInput
+							placeholder="Search"
+							onChangeText={setSearch}
+							onSubmitEditing={handleSearch}
+							returnKeyType="search"
+							flex
+						/>
+						<Button onPress={handleSearch} marginLeft={10} />
+					</View>
 				</View>
+				<Devider />
+				<ResultsList />
 			</View>
-			<Devider />
-			<ResultsList />
 		</Screen>
 	);
 }
