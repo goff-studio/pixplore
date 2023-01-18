@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { useSearchData } from '../hooks/useSearchData';
-import { ResultListItem } from './ResultListItem';
+import ResultListItem from './ResultListItem';
 import { Text, View } from './theme';
 import { theme } from './theme/themeConfig';
 import EmptyState from './EmptyState';

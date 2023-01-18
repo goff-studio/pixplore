@@ -5,7 +5,7 @@ import { Image } from './theme';
 import { theme } from './theme/themeConfig';
 import { screens } from '../configs/navigationConfig';
 
-export function ResultListItem({ item }) {
+function ResultListItem({ item }) {
 	const navigation = useNavigation();
 	const navigateToDetails = () => navigation.navigate(screens.details, item);
 	return (
@@ -21,3 +21,4 @@ export function ResultListItem({ item }) {
 		</Pressable>
 	);
 }
+export default React.memo(ResultListItem);
