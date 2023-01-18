@@ -15,7 +15,6 @@ export function ResultsList() {
 	const { nextPage } = useSearch();
 	const resultsFlatlistRef = useRef();
 	const currentKeyword = useKeyword();
-	console.info({ currentKeyword });
 
 	// Users Flatlist's related handlers
 	const [activeUser, setActiveUser] = useState('');
