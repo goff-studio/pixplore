@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image as RNImage } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 export function Image({
 	source,
@@ -25,12 +25,12 @@ export function Image({
 		position,
 	};
 	return (
-		<RNImage
+		<FastImage
 			resizeMode={resizeMode}
 			style={additionalStyle}
 			source={source}
 			{...props}>
 			{children}
-		</RNImage>
+		</FastImage>
 	);
 }
