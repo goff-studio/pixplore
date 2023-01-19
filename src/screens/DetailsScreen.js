@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { ScrollView, StyleSheet } from 'react-native';
+import { Image as RNImage, ScrollView, StyleSheet } from 'react-native';
 import AutoHeightImage from 'react-native-auto-height-image';
-import { Image, Screen, Text, View } from '../components/theme';
+import { Screen, Text, View } from '../components/theme';
 import { theme } from '../components/theme/themeConfig';
 import { ChipsLists } from '../components/ChipsLists';
 import { Avatar } from '../components/Avatar';
@@ -21,12 +21,11 @@ export function DetailsScreen() {
 	};
 	return (
 		<Screen edges={['bottom']}>
-			<Image
+			<RNImage
+				style={styles.gradient}
 				position="absolute"
 				source={{ uri: params.previewURL }}
-				blurRadius={40}
-				width="100%"
-				height="100%"
+				blurRadius={30}
 			/>
 			<ScrollView>
 				<View
@@ -87,5 +86,9 @@ const styles = StyleSheet.create({
 	container: {
 		borderTopLeftRadius: theme.roundness.large,
 		borderTopRightRadius: theme.roundness.large,
+	},
+	gradient: {
+		width: '100%',
+		height: '100%',
 	},
 });
