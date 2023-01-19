@@ -34,7 +34,8 @@ Incase of having incompatibility between dependencies and globally installed pac
  1. `redux`: I tried to use `redux` without any middleware only to show the abilities in a tiny project
  2. `react-native-toast-message` to simply show toast message on network errors
  3. `react-navigation` to implement a super simple navigation system.
- 4. `react-native-auto-height-image` to calculate the height of images based on their width without adding any extra utils
+ 4. `react-native-auto-height-image` to calculate the height of images based on their width without adding any extra utils. This component NOT used in Flatlist
+ 5. `react-native-fast-image` to use in results Flatlist and have better performance based on React-Native's best practices
 
 
 ## What's covered
