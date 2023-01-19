@@ -24,7 +24,8 @@ Clone the project
 
     
 **Troubleshooting**
-Incase of having between dependencies and globally installed packages, you can use `--legacy-peer-deps` flag
+
+Incase of having incompatibility between dependencies and globally installed packages, you can use `--legacy-peer-deps` flag
 
     npm install --legacy-peer-deps
 
